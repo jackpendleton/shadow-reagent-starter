@@ -11,8 +11,8 @@
 
 (defn start []
   ;; see :after-load in the shadow-cljs config
-  (r/render-component [hello-world]
-                      (. js/document (getElementById "app")))
+  (r/render [hello-world]
+            (.getElementById js/document "app"))
   (js/console.log ">>> Start!"))
 
 (defn stop []
@@ -21,5 +21,5 @@
 
 (defn ^:export init! []
   ;; init! is called once in index.html on page load
-  (start)
-  (js/console.log ">>> Init!"))
+  (js/console.log ">>> Init!")
+  (start))
