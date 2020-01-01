@@ -1,6 +1,6 @@
 (ns my-shadow-reagent.util)
 
-(defn foo-cljc [x]
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn msg
+  "A function shared between clj and cljs."
+  []
+  "Sharing is caring!")
