@@ -6,10 +6,7 @@
    [config.core :refer [env]]))
 
 (def mount-target
-  [:div#app
-   [:h2 "Welcome to my-shadow-reagent"]
-   [:p "please wait while Figwheel/shadow-cljs is waking up ..."]
-   [:p "(Check the js console for hints if nothing exciting happens.)"]])
+  [:div#app])
 
 (defn head []
   [:head
@@ -26,7 +23,6 @@
     (include-js "/js/app.js")
     [:script "my_shadow_reagent.core.init_BANG_()"]]))
 
-
 (defn index-handler
   [_request]
   {:status 200
@@ -36,12 +32,7 @@
 (def app
   (reitit-ring/ring-handler
    (reitit-ring/router
-    [["/" {:get {:handler index-handler}}]
-     ["/items"
-      ["" {:get {:handler index-handler}}]
-      ["/:item-id" {:get {:handler index-handler
-                          :parameters {:path {:item-id int?}}}}]]
-     ["/about" {:get {:handler index-handler}}]])
+    [["/" {:get {:handler index-handler}}]])
    (reitit-ring/routes
     (reitit-ring/create-resource-handler {:path "/" :root "/public"})
     (reitit-ring/create-default-handler))
