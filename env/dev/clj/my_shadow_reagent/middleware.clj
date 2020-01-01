@@ -8,5 +8,7 @@
 
 (def middleware
   [#(wrap-defaults % site-defaults)
+   wrap-content-type
+   wrap-params
    wrap-exceptions
    wrap-reload])

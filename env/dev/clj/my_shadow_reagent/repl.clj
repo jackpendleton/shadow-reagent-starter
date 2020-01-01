@@ -1,8 +1,9 @@
 (ns my-shadow-reagent.repl
-  (:use my-shadow-reagent.handler
-        figwheel-sidecar.repl-api
-        ring.server.standalone
-        [ring.middleware file-info file]))
+  (:require [my-shadow-reagent.handler :refer [app]]
+            figwheel-sidecar.repl-api
+            [ring.server.standalone :refer [serve]]
+            [ring.middleware.file-info :refer [wrap-file-info]]
+            [ring.middleware.file :refer [wrap-file]]))
 
 (defonce server (atom nil))
 
