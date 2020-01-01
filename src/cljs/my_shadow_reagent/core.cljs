@@ -10,16 +10,16 @@
    [:h3 (str "Code Sharing: [" (msg) "]")]])
 
 (defn start []
+  ;; see :after-load in the shadow-cljs config
   (r/render-component [hello-world]
                       (. js/document (getElementById "app")))
   (js/console.log ">>> Start!"))
 
+(defn stop []
+  ;; see :before-load in the shadow-cljs config
+  (js/console.log ">>> Stop!"))
+
 (defn ^:export init! []
-  ;; init! is called once in index.html when the page loads
+  ;; init! is called once in index.html on page load
   (start)
   (js/console.log ">>> Init!"))
-
-(defn stop []
-  ;; stop is called before any code is reloaded
-  ;; this is controlled by :before-load in the config
-  (js/console.log ">>> Stop!"))
