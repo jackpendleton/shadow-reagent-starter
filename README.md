@@ -1,22 +1,28 @@
 # my-shadow-reagent
 
-Minimalist starter for fullstack Clojure web apps.
+Minimalist starter for fullstack Clojure/ClojureScript web apps:
+
+* ring/compojure backend
+* reagent/shadow-cljs frontend
+* statically-served entry point
+* js/css hot-reloading
+* clj/cljs repls
 
 ## Getting started
 
-Install npm dependencies:
+Install `npm` dependencies:
 
 ```
 $ npm i
 ```
 
-Start the browser REPL:
+Start the REPL:
 
 ```
 $ lein repl
 ```
 
-Start the Jetty server on http://localhost:3000:
+Start the server on http://localhost:3000:
 
 ```clojure
 (start-server)
@@ -29,3 +35,9 @@ $ shadow-cljs watch app
 ```
 
 The dev-server will be available on http://localhost:3333.
+
+## Notes
+
+Based on a modified Leiningen [`shadow-cljs`](https://github.com/thheller/shadow-cljs) 
+[`reagent-template`](https://github.com/reagent-project/reagent-template) and inspired by 
+[`fullstack-clojure`](https://github.com/tamizhvendan/fullstack-clojure).
