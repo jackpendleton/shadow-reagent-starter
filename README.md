@@ -28,7 +28,7 @@ Start the server on http://localhost:3000:
 (start-server)
 ```
 
-Start Shadow-CLJS:
+Start `shadow-cljs`:
 
 ```
 $ shadow-cljs watch app
