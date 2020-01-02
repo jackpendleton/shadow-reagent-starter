@@ -15,6 +15,7 @@
   :plugins [[lein-environ "1.1.0"]]
 
   :dependencies [[org.clojure/clojure "1.10.1"]
+                 [org.clojure/data.json "0.2.7"]
                  [compojure "1.6.1"]
                  [reagent "0.9.0-rc3"]
                  [reagent-utils "0.3.3"]
