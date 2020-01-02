@@ -1,4 +1,4 @@
-(ns rest-api.handler
+(ns my-shadow-reagent.handler
   (:require [compojure.route :as route]
             [compojure.core :refer [defroutes GET]]
             [ring.middleware.resource :refer [wrap-resource]]
