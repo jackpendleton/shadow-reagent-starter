@@ -1,13 +1,23 @@
 (ns my-shadow-reagent.core
-  (:require [reagent.core :as r :refer [atom]]
-            [my-shadow-reagent.util :refer [msg]]))
+  (:require
+   [reagent.core :as r :refer [atom]]
+   [my-shadow-reagent.util :refer [msg]]))
+
+;; -------------------------
+;; State
 
 (defonce app-state (atom {:text "Hello World!"}))
+
+;; -------------------------
+;; Views
 
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
    [:h3 (str "Code Sharing: [" (msg) "]")]])
+
+;; -------------------------
+;; Initialize app
 
 (defn start []
   ;; see :after-load in the shadow-cljs config
