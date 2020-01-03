@@ -1,14 +1,21 @@
 (ns my-shadow-reagent.middleware
   (:require
-   [ring.middleware.content-type :refer [wrap-content-type]]
-   [ring.middleware.params :refer [wrap-params]]
    [prone.middleware :refer [wrap-exceptions]]
+   [ring.middleware.file :refer [wrap-file]]
+   [ring.middleware.params :refer [wrap-params]]
    [ring.middleware.reload :refer [wrap-reload]]
+   [ring.middleware.resource :refer [wrap-resource]]
+   [ring.middleware.file-info :refer [wrap-file-info]]
+   [ring.middleware.content-type :refer [wrap-content-type]]
    [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
 
-(def middleware
-  [#(wrap-defaults % site-defaults)
-   wrap-content-type
-   wrap-params
-   wrap-exceptions
-   wrap-reload])
+(defn apply-middleware [handler]
+  (-> handler
+      (wrap-resource "public")
+      (wrap-defaults site-defaults)
+      (wrap-file "resources")
+      (wrap-file-info)
+      (wrap-content-type)
+      (wrap-params)
+      (wrap-exceptions)
+      (wrap-reload)))

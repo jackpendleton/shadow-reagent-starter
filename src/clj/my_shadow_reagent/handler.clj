@@ -1,11 +1,10 @@
 (ns my-shadow-reagent.handler
-  (:require [compojure.route :as route]
-            [compojure.core :refer [defroutes GET]]
-            [ring.middleware.resource :refer [wrap-resource]]
-            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]
-            [ring.util.response :refer [resource-response]]
-            [clojure.string :as str]
-            [clojure.data.json :as json])
+  (:require
+   [clojure.string :as str]
+   [clojure.data.json :as json]
+   [compojure.route :as route]
+   [compojure.core :refer [defroutes GET]]
+   [ring.util.response :refer [resource-response]])
   (:gen-class))
 
 (def people-collection (atom []))
@@ -22,7 +21,7 @@
    :headers {"Content-Type" "text/html"}
    :body    (->
              (println (str "Query params: " (:params req)))
-             (str "Hello " (:name (:params req))))})
+             (str "Hello " (:name (:params req)) "!"))})
 
 ; GET /people
 (defn people-handler [req]
@@ -55,7 +54,4 @@
   (GET "/people/add" [] add-person-handler)
   (route/not-found "Error, page not found!"))
 
-(def app
-  (-> routes
-      (wrap-resource "public")
-      (wrap-defaults site-defaults)))
+(def app (-> routes))
