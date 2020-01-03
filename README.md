@@ -10,10 +10,10 @@ Minimalist starter for fullstack Clojure/ClojureScript web apps:
 
 ## Getting started
 
-Install `npm` dependencies:
+Install `npm` dependencies and compile Javascript:
 
 ```
-$ npm i
+$ npm run init
 ```
 
 Start the REPL:
